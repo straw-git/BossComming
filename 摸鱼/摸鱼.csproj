@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{88BFADD0-FB92-452E-A764-B592BE66FC85}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>摸鱼</RootNamespace>
+    <AssemblyName>BossComing</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>client.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ByteTransmit.cs" />
+    <Compile Include="Client\Client2ServerSocket.cs" />
+    <Compile Include="Client\ClientEventObserver.cs" />
+    <Compile Include="Client\TryFindServer.cs" />
+    <Compile Include="Crc16.cs" />
+    <Compile Include="Global.cs" />
+    <Compile Include="Protocol\S2C_Close.cs" />
+    <Compile Include="Protocol\C2S_Close.cs" />
+    <Compile Include="Protocol\C2S_SendMyName.cs" />
+    <Compile Include="Protocol\S2C_ClientNames.cs" />
+    <Compile Include="Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ObserverBase.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Protocol\ProtocolCodes.cs" />
+    <Compile Include="SecurityUtil.cs" />
+    <Compile Include="ServerMemoryStream.cs" />
+    <Compile Include="Server\Clients.cs" />
+    <Compile Include="Server\Server2ClientSocket.cs" />
+    <Compile Include="Server\ServerEventObserver.cs" />
+    <Compile Include="Singleton.cs" />
+    <Compile Include="ZlibHelper.cs" />
+    <Compile Include="zlib_NET_104\Adler32.cs" />
+    <Compile Include="zlib_NET_104\Deflate.cs" />
+    <Compile Include="zlib_NET_104\InfBlocks.cs" />
+    <Compile Include="zlib_NET_104\InfCodes.cs" />
+    <Compile Include="zlib_NET_104\Inflate.cs" />
+    <Compile Include="zlib_NET_104\InfTree.cs" />
+    <Compile Include="zlib_NET_104\StaticTree.cs" />
+    <Compile Include="zlib_NET_104\SupportClass.cs" />
+    <Compile Include="zlib_NET_104\Tree.cs" />
+    <Compile Include="zlib_NET_104\ZInputStream.cs" />
+    <Compile Include="zlib_NET_104\Zlib.cs" />
+    <Compile Include="zlib_NET_104\ZOutputStream.cs" />
+    <Compile Include="zlib_NET_104\ZStream.cs" />
+    <Compile Include="zlib_NET_104\ZStreamException.cs" />
+    <EmbeddedResource Include="Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="client.ico" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
