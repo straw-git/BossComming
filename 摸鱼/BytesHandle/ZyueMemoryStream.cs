@@ -5,14 +5,14 @@ using System.IO;
 using System.Text;
 
 
-public class ServerMemoryStream : MemoryStream
+public class ZyueMemoryStream : MemoryStream
 {
-    public ServerMemoryStream()
+    public ZyueMemoryStream()
     {
 
     }
 
-    public ServerMemoryStream(byte[] buffer)
+    public ZyueMemoryStream(byte[] buffer)
         : base(buffer)
     {
 

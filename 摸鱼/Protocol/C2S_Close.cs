@@ -11,7 +11,7 @@ namespace 摸鱼.Protocol
 
         public byte[] ToByte()
         {
-            using (ServerMemoryStream ms = new ServerMemoryStream())
+            using (ZyueMemoryStream ms = new ZyueMemoryStream())
             {
                 ms.WriteUShort(ProtoCode);
                 return ms.ToArray();

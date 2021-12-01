@@ -13,7 +13,7 @@ namespace 摸鱼.Protocol
 
         public byte[] ToByte()
         {
-            using (ServerMemoryStream ms = new ServerMemoryStream())
+            using (ZyueMemoryStream ms = new ZyueMemoryStream())
             {
                 ms.WriteUShort(ProtoCode);
 
@@ -24,7 +24,7 @@ namespace 摸鱼.Protocol
         public C2S_SendMyName ToProtocol(byte[] buffer)
         {
             C2S_SendMyName pro = new C2S_SendMyName();
-            using (ServerMemoryStream ms = new ServerMemoryStream(buffer))
+            using (ZyueMemoryStream ms = new ZyueMemoryStream(buffer))
             {
                 pro.Name = ms.ReadUTF8String();
                 return pro;

@@ -19,7 +19,7 @@ namespace 摸鱼.Client
         private byte[] m_ReceiveBuffer = new byte[2048];
 
         //接收数据包的缓冲数据流
-        private ServerMemoryStream m_ReceiveMS = new ServerMemoryStream();
+        private ZyueMemoryStream m_ReceiveMS = new ZyueMemoryStream();
 
         //接收消息的队列
         private Queue<byte[]> m_ReceiveQueue = new Queue<byte[]>();
@@ -270,7 +270,7 @@ namespace 摸鱼.Client
                         bool isCompress = false;
                         ushort crc = 0;
 
-                        using (ServerMemoryStream ms = new ServerMemoryStream(buffer))
+                        using (ZyueMemoryStream ms = new ZyueMemoryStream(buffer))
                         {
                             isCompress = ms.ReadBool();
                             crc = ms.ReadUShort();
@@ -292,7 +292,7 @@ namespace 摸鱼.Client
 
                             ushort protoCode = 0;
                             byte[] protoContent = new byte[bufferNew.Length - 2];
-                            using (ServerMemoryStream ms = new ServerMemoryStream(bufferNew))
+                            using (ZyueMemoryStream ms = new ZyueMemoryStream(bufferNew))
                             {
                                 //协议编号
                                 protoCode = ms.ReadUShort();

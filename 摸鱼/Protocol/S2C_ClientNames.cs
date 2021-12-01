@@ -14,7 +14,7 @@ namespace 摸鱼.Protocol
 
         public byte[] ToByte()
         {
-            using (ServerMemoryStream ms = new ServerMemoryStream())
+            using (ZyueMemoryStream ms = new ZyueMemoryStream())
             {
                 ms.WriteUShort(ProtoCode);
 
@@ -29,7 +29,7 @@ namespace 摸鱼.Protocol
         public S2C_ClientNames ToProtocol(byte[] buffer)
         {
             S2C_ClientNames pro = new S2C_ClientNames();
-            using (ServerMemoryStream ms = new ServerMemoryStream(buffer))
+            using (ZyueMemoryStream ms = new ZyueMemoryStream(buffer))
             {
                 pro.DataCount = ms.ReadInt();
                 pro.Names = new List<string>();

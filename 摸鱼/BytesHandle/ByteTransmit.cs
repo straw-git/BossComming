@@ -35,7 +35,7 @@ public class ByteTransmit
         //3.Crc校验 压缩后的
         ushort crc = Crc16.CalculateCrc16(data);
 
-        using (ServerMemoryStream ms = new ServerMemoryStream())
+        using (ZyueMemoryStream ms = new ZyueMemoryStream())
         {
             ms.WriteUShort((ushort)(data.Length + 3));
             ms.WriteBool(isCompress);
@@ -56,7 +56,7 @@ public class ByteTransmit
     /// <returns>截取后的字节数组</returns>  
     public static byte[] SubByte(byte[] srcBytes, int startIndex, int length)
     {
-        using (ServerMemoryStream bufferStream = new ServerMemoryStream())
+        using (ZyueMemoryStream bufferStream = new ZyueMemoryStream())
         {
             byte[] returnByte = new byte[] { };
 
